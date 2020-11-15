@@ -41,7 +41,7 @@ function setup() {
   block13 = new Box(580,390,30,40);
   block14 = new Box(620,390,30,40);
 
-  block15 = new Box(600,345,30,40);
+  block15 = new Box(600,335,30,40);
 
   var options = {
     'restitution':0.8,
