@@ -29,19 +29,19 @@ function setup() {
   block4 = new Box(640,525,30,40);
   block5 = new Box(680,525,30,40);
 
-  block6 = new Box(540,480,30,40);
-  block7 = new Box(580,480,30,40);
-  block8 = new Box(620,480,30,40);
-  block9 = new Box(660,480,30,40);
+  block6 = new Box(540,490,30,40);
+  block7 = new Box(580,490,30,40);
+  block8 = new Box(620,490,30,40);
+  block9 = new Box(660,490,30,40);
 
-  block10 = new Box(560,435,30,40);
-  block11 = new Box(600,435,30,40);
-  block12 = new Box(640,435,30,40);
+  block10 = new Box(560,460,30,40);
+  block11 = new Box(600,460,30,40);
+  block12 = new Box(640,460,30,40);
 
-  block13 = new Box(580,390,30,40);
-  block14 = new Box(620,390,30,40);
+  block13 = new Box(580,430,30,40);
+  block14 = new Box(620,430,30,40);
 
-  block15 = new Box(600,335,30,40);
+  block15 = new Box(600,400,30,40);
 
   var options = {
     'restitution':0.8,
@@ -58,7 +58,6 @@ function setup() {
 
 function draw() {
   background(0); 
-  text(mouseX +" , "+ mouseY,100,100); 
  
   Engine.update(engine);
 
