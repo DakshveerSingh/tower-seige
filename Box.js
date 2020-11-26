@@ -4,16 +4,25 @@ class Box extends BaseClass {
   }
 
   display(){
-    if(this.body.speed < 3){
+    var state = 1;
+
+    if(this.body.speed <= 3 && state === 1){
       super.display();
+      state = 2;
     }
-    else{
+    if(this.body.speed > 3 && state === 2){
       World.remove(world,this.body);
       push();
-      this.visibility = this.visyibility - 5;
+      this.visibility = this.visibility - 1;
       tint(255,this.visibility);
-      rect(0,0,this.width,this.height);
+      rect(this.body.position.x,this.body.position.y,this.width,this.height);
       pop();
+    }
+  }
+
+  score(){
+    if(this.visiblity < 0 && this.visiblity > -105){
+      score++;
     }
   }
 };

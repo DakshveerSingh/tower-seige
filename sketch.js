@@ -5,6 +5,8 @@ const Constraint = Matter.Constraint;
 
 var engine, world;
 
+var backgroundImg,bg;
+
 var ground;
 var stand;
 var block1,block2,block3,block4,block5;
@@ -14,6 +16,12 @@ var block13,block14;
 var block15;
 
 var hex,chain;
+
+var score = 0;
+
+function preload() {
+  getTime();
+}
 
 function setup() {
   engine = Engine.create();
@@ -57,32 +65,49 @@ function setup() {
 }
 
 function draw() {
-  background(0); 
- 
+  if(backgroundImg)
+    background(backgroundImg);
   Engine.update(engine);
+
+  text("SCORE : " + score, 100,40);
 
   ground.display();
   stand.display();
 
   block1.display();
+  block1.score();
   block2.display();
+  block2.score();
   block3.display();
+  block3.score();
   block4.display();
+  block4.score();
   block5.display();
+  block5.score();
 
   block6.display();
+  block6.score();
   block7.display();
+  block7.score();
   block8.display();
+  block8.score();
   block9.display();
+  block9.score();
 
   block10.display();
+  block10.score();
   block11.display();
+  block11.score();
   block12.display();
+  block12.score();
   
   block13.display();
+  block13.score();
   block14.display();
+  block14.score();
 
   block15.display();
+  block15.score();
 
   chain.display();
 
@@ -101,4 +126,19 @@ function keyPressed(){
   if(keyCode === 32){
       chain.attach(hex);
   }
+}
+
+async function getTime(){
+  var dateTime = await fetch("http://worldtimeapi.org/api/timezone/America/Edmonton");
+  var dateTimeJson = await dateTime.json();
+
+  var response = dateTimeJson.datetime;   
+  var hour = response.slice(11,13);
+  if(hour >= 06 && hour < 18){
+      bg = "blackbg.jpg";
+  }
+  else{
+      bg = "whitebg.jpg";
+  }
+  backgroundImg = loadImage(bg);
 }
